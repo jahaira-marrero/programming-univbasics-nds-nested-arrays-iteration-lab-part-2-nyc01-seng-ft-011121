@@ -8,36 +8,24 @@ array_of_daily_temperatures = [
   [30, 36, 38, 39, 40, 45, 47, 49, 50, 59, 60, 60, 65, 63, 61, 56, 49, 43, 40, 39, 35, 32, 23, 22],
 ]
 
-# outer_results = []
-# def find_min_in_nested_arrays(src)
-#   # src will be an array of arrays of integers
-#   # Produce a new Array that contains the smallest number of each of the nested arrays
-# row_index = 0 
-# while row_index < src.count do
-#   element_index = 0 
-#   while element_index < src[row_index].count do
-#   if src[row_index][element_index].min?
-#   p src[row_index][element_index]
-# end
-# element_index += 1 
-# end
-# row_index += 1 
-# end
-# end
-# find_min_in_nested_arrays(array_of_daily_temperatures)
-
 def find_min_in_nested_arrays(src)
-final_string = []
+  # src will be an array of arrays of integers
+  # Produce a new Array that contains the smallest number of each of the nested arrays
+  outer_results = []
   row_index = 0
   while row_index < src.count do
     element_index = 0
-    while element_index < src[row_index].count do      
-      if src[row_index][element_index] == count.min
-        final_string << src[row_index][element_index].min
+    inner_results = []
+    lowest_value = 100
+    while element_index < src[row_index].count do
+      if src[row_index][element_index] < lowest_value
+        lowest_value = src[row_index][element_index]
       end
       element_index += 1
     end
+    outer_results << lowest_value
     row_index += 1
   end
-  final_string
+  outer_results
+
 end
